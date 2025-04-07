@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
     try {
       const content = await fs.readFile(filePath);
       res.writeHead(statusCode, { 'Content-Type': contentType });
-      res.end(content);
+      res.end(content, 'utf8');
     } catch (err) {
       console.error(err);
       res.writeHead(500);
